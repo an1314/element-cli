@@ -19,6 +19,7 @@
             </el-row>
         </li>
       </ul>
+      <div class="clear"></div>
     </div>
   </div>
 </template>
@@ -133,6 +134,9 @@ export default {
 };
 </script>
 <style>
+.clear{
+    clear: both;
+}
 * {
   margin: 0;
   padding: 0;
@@ -140,11 +144,10 @@ export default {
 }
 #container {
   width: 100%;
-  height: 260px;
+  height: 100%;
   margin: 10px auto;
   overflow: hidden;
   position: relative;
-  border: 1px solid;
   box-sizing: border-box;
 }
 
@@ -152,15 +155,15 @@ export default {
   width: 100%;
   right: -100%;
   top: 0;
-  position: absolute;
-  animation: scollLeft 30s linear -15s infinite;
+  position: relative;
+  animation: scollLeft 50s linear -25s infinite;
 }
 #container ul.last {
   width: 100%;
   right: -100%;
   top: 0;
   position: absolute;
-  animation: scollLeft 30s linear 0s infinite;
+  animation: scollLeft 50s linear 0s infinite;
 }
 
 #container:hover ul {

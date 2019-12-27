@@ -1,31 +1,23 @@
 <template>
-  <el-card :body-style="{ padding: '0px' }" class="img-default-card" shadow="never">
-    <div class="img-default-card-img">
+  <el-card :body-style="{ padding: '0px' }" class="img-mini-card" shadow="never">
+    <div class="img-mini-card-img">
       <div :style="'background-image: url('+ option.url +')'"></div>
     </div>
-    <!-- <el-image
-      :src="option.url"
-    :fit="contain"></el-image>-->
-    <div class="img-default-card-desc">
+    <div class="img-mini-card-desc">
       <span>{{ option.description }}</span>
-      <div class="bottom clearfix" v-show="showLink">
-        <el-button type="text" class="button">{{ linkLabel }}</el-button>
-      </div>
     </div>
   </el-card>
 </template>
 <style>
-.img-default-card {
+.img-mini-card {
   margin-bottom: 10px;
 }
-.img-default-card-img {
-  padding: 2%;
+.img-mini-card-img {
+  padding-bottom: 6px;
   position: relative;
-  width: 96%;
   text-align: center;
-  background: rgb(243, 241, 241);
 }
-.img-default-card-img div {
+.img-mini-card-img div {
   padding-top: 90%; /* 1:1 aspect ratio */
   width: 100%;
   background-position: center center;
@@ -35,7 +27,6 @@
 .bottom {
   margin-top: 5px;
   line-height: 12px;
-
   padding-bottom: 5px;
 }
 
@@ -58,18 +49,18 @@
 .clearfix:after {
   clear: both;
 }
-.img-default-card-desc {
-  height: 45px;
+.img-mini-card-desc {
+  height: 12px;
   font-size: 12px;
-  text-align: center;
-  background: rgb(218, 214, 214);
+  line-height: 12px;
+  padding-bottom: 2px;
 }
 </style>
 
 <script>
 export default {
   // 卡片模板用于显示图片
-  name: "img-default-card",
+  name: "img-mini-card",
   props: {
     // 用于卡片显示
     option: {
