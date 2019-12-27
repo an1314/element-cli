@@ -13,7 +13,7 @@
       </el-row>
     </el-col>
     <el-col :span="1">
-      <el-popover placement="bottom-end" width="400" trigger="click">
+      <el-popover placement="bottom-end" width="400" trigger="hover" @hide="onPopHide" @show="onPopShow">
         <el-row v-for="(tagsItem, index) in Object.entries(tags)" :key="index">
           <el-checkbox
             :indeterminate="tagsForCheckAll[tagsItem[0]].isIndeterminate"
@@ -32,7 +32,7 @@
             >{{item.label}}</el-checkbox>
           </el-checkbox-group>
         </el-row>
-        <span class="el-icon-s-grid" slot="reference"></span>
+        <span class="el-icon-s-grid" style="float:right" slot="reference"></span>
       </el-popover>
     </el-col>
   </el-row>
@@ -136,6 +136,28 @@ export default {
         val ? tagsItem[1].list.map(item => item.value) : []
       );
       this.$set(this.tagsForCheckAll[tagsItem[0]], "isIndeterminate", false);
+    },
+    onPopHide(){
+      this.tagsInfo = Object.entries(this.tags).reduce((object, item) => {
+        let tags = new Set(this.tagsForCheckAll[item[0]].checktags);
+        object[item[0]] = {
+          label: item[1].label,
+          list: item[1].list.filter(tag => tags.has(tag.value))
+        }
+        return object;
+      }, {})
+    },
+    onPopShow(){
+      this.tagsForCheckAll = Object.entries(this.tagsInfo).reduce((object, item) => {
+        let tags = item[1].list.map(tag => tag.value);
+        let len = this.tags[item[0]].list.length;
+        object[item[0]] = {
+          checkAll: tags.length === len,
+          isIndeterminate: tags.length >0 && tags.length < len ,
+          checktags: tags
+        }
+        return object;
+      }, {})
     }
   }
 };
@@ -145,8 +167,12 @@ export default {
   margin-right: 10px;
   margin-bottom: 10px;
 }
+.tag-default-muti /deep/ .el-row {
+  height: 50px;
+}
 .label {
   width: 80px;
+  line-height: 50px;
   display: inline-block;
 }
 </style>
