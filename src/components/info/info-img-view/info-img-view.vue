@@ -1,24 +1,23 @@
 <template>
-<el-row>
-  <el-row class="info-img-view">
-    <el-col :span="4" class="info-img-view-img">
-      <div :style="'background-image: url('+ option.url +')'"></div>
-    </el-col>
-    <el-col :span="20" >
-      <el-row type="flex" align="middle" >
-        <el-col>
-          <span class="title">{{ option.title }}</span>
-          <span class="date">{{ option.date }}</span>
-        </el-col>
-        <el-col>
-          <span class="description">{{ option.description }}</span>
-        </el-col>
-      </el-row>
-    </el-col>
-    
+  <el-row>
+    <el-row class="info-img-view">
+      <el-col :span="4" class="info-img-view-img">
+        <div :style="'background-image: url('+ option.url +')'"></div>
+      </el-col>
+      <el-col :span="20">
+        <el-row >
+          <el-col :span="24" class="info-img-view-header">
+            <span class="title">{{ option.title }}</span>
+            <span class="date">{{ option.date }}</span>
+          </el-col>
+          <el-col :span="24">
+            <span class="description">{{ option.description }}</span>
+          </el-col>
+        </el-row>
+      </el-col>
+    </el-row>
+    <el-divider></el-divider>
   </el-row>
-  <el-divider></el-divider>
-</el-row>
 </template>
 <script>
 export default {
@@ -50,27 +49,40 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.info-img-view{
-    height: 200px;
+.info-img-view {
+  height: 170px;
 }
-.info-img-view-img div{
-    padding-top: 90%;
+.info-img-view-img div {
+  padding-top: 90%;
+  width: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .info-img-view-img {
-    display: flex;
-    justify-content: center;
+  height: 170px;
+  background: rgb(231, 229, 229);
+  display: flex;
+  justify-content: center;
 }
-.title{
-
+.title {
+  width: auto;
+  font-weight: 600;
+  height: 100px;
 }
-.date{
-    float: right;
+.date {
+  min-width: 100px;
+  float: right;
+  color: rgb(206, 205, 205);
 }
-.info-img-view /deep/ .el-col-20{
-    height: 100%;
+.info-img-view-header{
+  height: 40px;
 }
-.info-img-view /deep/ .el-row{
-    height: 100%;
-    justify-content: space-between;
+.info-img-view /deep/ .el-col-20 {
+  height: 100%;
+}
+.info-img-view /deep/ .el-row {
+  height: 100%;
+  padding: 10px 20px;
 }
 </style>
