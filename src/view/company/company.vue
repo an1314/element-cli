@@ -20,6 +20,7 @@
           </text-box-card>
           <text-box-card>
             <info-default></info-default>
+            <info-img-view></info-img-view>
           </text-box-card>
         </el-main>
       </el-container>

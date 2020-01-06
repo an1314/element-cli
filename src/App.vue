@@ -21,6 +21,6 @@ export default {
 .box-only{
   margin-top: 10px; 
   padding-top:10px; 
-  border: 1px solid;
+  border: 1px solid rgb(219, 215, 215);
 }
 </style>

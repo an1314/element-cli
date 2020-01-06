@@ -30,7 +30,7 @@
       <transition name="el-fade-in-linear" mode="out-in">
         <div v-if="menuName == '1'" :key="1">
           <home>
-            <aside-default slot="aside"></aside-default>
+            <aside-default slot="aside" ></aside-default>
             <el-breadcrumb separator-class="el-icon-arrow-right" slot="bread">
               <el-breadcrumb-item>您现在的位置：首页</el-breadcrumb-item>
               <el-breadcrumb-item>测试网站</el-breadcrumb-item>
@@ -60,6 +60,9 @@
         <div v-if="menuName == '4'" :key="4">公司相册</div>
       </transition>
     </el-main>
+    <el-footer class="main-footer">
+      <footer-default></footer-default>
+    </el-footer>
   </el-container>
 </template>
 <style lang="less">

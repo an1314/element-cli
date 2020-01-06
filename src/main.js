@@ -16,8 +16,10 @@ import TextMiniboxCard from '@/components/cards/text-minibox-card'
 import InfoDefault from '@/components/info/info-default'
 import HeaderDefault from "@/components/header/header-default";
 import TitleDefault from "@/components/title/title-default";
+import FooterDefault from "@/components/footer/footer-default";
 import AsideDefault from '@/components/aside/aside-default';
 import TagDefaultMuti from '@/components/tags/tag-default-muti';
+import InfoImgView from '@/components/info/info-img-view'
 Vue.config.productionTip = false
 
 const components = [
@@ -46,7 +48,11 @@ const components = [
   // 侧边栏
   AsideDefault,
   // 多选标签
-  TagDefaultMuti
+  TagDefaultMuti,
+  // 底部样式
+  FooterDefault,
+  // 详情列展示
+  InfoImgView
 ];
 components.forEach(component => {
   Vue.component(component.name, component);

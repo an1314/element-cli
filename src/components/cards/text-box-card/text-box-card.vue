@@ -1,5 +1,5 @@
 <template >
-  <el-card class="text-box-card">
+  <el-card class="text-box-card" shadow="never">
     <div slot="header" class="clearfix">
       <el-row>
         <el-col class="title" :span="5">

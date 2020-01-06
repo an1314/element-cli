@@ -2,7 +2,7 @@
   <el-container>
     <el-main>
       <el-container>
-        <el-aside width="320px">
+        <el-aside width="320px" style="position:sticky;top:0">
           <slot name='aside'></slot>
         </el-aside>
         <el-main>
